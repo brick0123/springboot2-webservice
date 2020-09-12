@@ -9,8 +9,8 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.hamcrest.Matchers.is;
 
 @RunWith(SpringRunner.class) // 테스트를진행할 때 JUnit에 내장된 실행자 외에 다른 실행자를 실행시킵니다.
 // 여기서는 SpringRunner라는 스프링 실행자를 사용합니다.
@@ -43,6 +43,21 @@ public class HelloControllerTest {
                 // mvc.perfome의 결과를 검증
                 // 응답 본문의 내용을 검증
                 // Controller에서 "hello"를 리턴하기 때문에 이 값이 맞는지 검증함
+
+    }
+
+    @Test
+    public void helloDto가_리턴된다() throws Exception {
+        String name = "hello";
+        int amount = 1000;
+
+        mvc.perform(
+                get("/hello/dto")
+                        .param("name", name)
+                        .param("amount", String.valueOf(amount))
+        ).andExpect(status().isOk())
+                .andExpect(jsonPath("$.name", is(name)))
+                .andExpect(jsonPath("$.amount", is(amount)));
     }
 
 }
