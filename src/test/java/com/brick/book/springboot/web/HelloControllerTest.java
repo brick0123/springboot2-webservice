@@ -21,6 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 // 선언할 경우 @Controller, @ControllerAdvice등을 사용할 수 있음
 // 단 @Service, @Component, @Repository등은 사용할 수 없음
 // 여기서는 컨트롤러만 사용하기 떄문에 선언
+// WebMvcTest는 JPA기능이 작동하지 않음
 public class HelloControllerTest {
 
     @Autowired

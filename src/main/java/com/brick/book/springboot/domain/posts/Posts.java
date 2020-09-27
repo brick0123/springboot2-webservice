@@ -10,7 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity // Entity 클래스에서는 절대 Setter 메소드 사용 x
 // 생성자를 통해 최종값을 채운 후 DB에 삽입,
-// 값 변경이 필요한 경우 ㄴ해당 이벤트에 맞는 public 메소드를 호출하여 변경하는 것을 권장
+// 값 변경이 필요한 경우 해당 이벤트에 맞는 public 메소드를 호출하여 변경하는 것을 권장
 public class Posts {
     
     @Id
@@ -31,5 +31,10 @@ public class Posts {
         this.title = title;
         this.content = content;
         this.author = author;
+    }
+
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
     }
 }
