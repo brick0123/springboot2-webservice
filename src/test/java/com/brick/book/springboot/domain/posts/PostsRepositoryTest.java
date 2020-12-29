@@ -1,5 +1,7 @@
 package com.brick.book.springboot.domain.posts;
 
+import java.time.LocalDateTime;
+import java.time.Month;
 import org.assertj.core.api.Assertions;
 import org.junit.After;
 import org.junit.Test;
@@ -46,5 +48,28 @@ public class PostsRepositoryTest {
         assertThat(posts.getTitle()).isEqualTo(title);
         assertThat(posts.getContent()).isEqualTo(content);
 
+    }
+
+    @Test
+    public void BaseTimeEntity_등록() {
+        // given
+        LocalDateTime now = LocalDateTime.of(2020, Month.DECEMBER, 29, 0, 0, 0);
+        postsRepository.save(Posts.builder()
+            .title("title")
+            .content("content")
+            .author("author")
+            .build()
+        );
+
+        // when
+        List<Posts> postsList = postsRepository.findAll();
+
+        // then
+        Posts posts = postsList.get(0);
+
+        System.out.println(">>>>>>> createDate=" + posts.getCreateDate() + ", modifiedDate=" + posts.getModifyDate());
+
+        assertThat(posts.getCreateDate()).isAfter(now);
+        assertThat(posts.getModifyDate()).isAfter(now);
     }
 }
