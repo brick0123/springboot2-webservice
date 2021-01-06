@@ -1,6 +1,8 @@
 package com.brick.book.springboot.domain.posts;
 
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 // Mybatis에서 Dao라고 불리는 DB Layer 접근자
 // JPA에선 Repository라고 부르며 인터페이스로 생성함.
@@ -10,4 +12,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 // 둘은 아주 밀접한 관계이고, Entity클래스는기본 Repository없이는 제대로 역할 수행 불가
 // 도메인 패키지에서 함께 관리
 public interface PostsRepository  extends JpaRepository<Posts, Long> {
+
+  @Query("select p from Posts p order by p.id desc")
+  List<Posts> findAllDesc();
 }
