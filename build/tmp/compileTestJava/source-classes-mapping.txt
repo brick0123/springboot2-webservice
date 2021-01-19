@@ -1,0 +1,10 @@
+com/brick/book/springboot/domain/posts/PostsRepositoryTest.java
+ com.brick.book.springboot.domain.posts.PostsRepositoryTest
+com/brick/book/springboot/web/dto/HelloResponseDtoTest.java
+ com.brick.book.springboot.web.dto.HelloResponseDtoTest
+com/brick/book/springboot/web/HelloControllerTest.java
+ com.brick.book.springboot.web.HelloControllerTest
+com/brick/book/springboot/web/PostsApiControllerTest.java
+ com.brick.book.springboot.web.PostsApiControllerTest
+com/brick/book/springboot/web/IndexControllerTest.java
+ com.brick.book.springboot.web.IndexControllerTest
