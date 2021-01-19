@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
-@EnableJpaAuditing
+//@EnableJpaAuditing
 @SpringBootApplication // 스프링 부트의 자동 설정, 스프링 Bean읽기와 생성을 모두 자동으로 설정됨
 // 현재위치로부터 설정을 읽어오기 때문에 최상단에 위치해야함
 public class Application {
